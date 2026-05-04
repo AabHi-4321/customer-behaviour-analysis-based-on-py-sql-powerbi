@@ -1,79 +1,60 @@
-# 🛍️ Customer Behavior Analysis (Python + SQL + Power BI)
+# Customer Behavior Analysis (Python + SQL + Power BI)
 
-## 📌 Project Overview
+## Project Overview
 
 This project focuses on analyzing **customer purchasing behavior** using an end-to-end data pipeline:
 
-* 🐍 Data Cleaning using Python
-* 🛢️ Data Analysis using SQL
-* 📊 Data Visualization using Power BI
+*  Data Cleaning using Python
+*  Data Analysis using SQL
+*  Data Visualization using Power BI
 
 The goal is to extract meaningful insights about **customer preferences, spending patterns, and business performance**.
 
 ---
 
-## 🧰 Tools & Technologies Used
+##  Tools & Technologies Used
 
 * Python (Pandas, NumPy)
 * MySQL
 * Microsoft Power BI
-* Excel (Dataset)
+* CSV Dataset
 
 ---
 
-## 📂 Project Structure
+##  Dataset
 
-```
-Customer-Behavior-Analysis/
-│
-├── data/
-│   └── SALES_DATASHEET.xlsx
-│
-├── notebooks/
-│   └── data_cleaning.ipynb
-│
-├── sql/
-│   └── queries.sql
-│
-├── powerbi/
-│   └── sales_dashboard.pbix
-│
-├── images/
-│   └── dashboard.png
-│
-└── README.md
-```
+ [View Dataset](https://github.com/AabHi-4321/customer-behaviour-analysis-based-on-py-sql-powerbi/blob/main/py_sql_powerbi/data/customer_shopping_behavior.csv)
 
 ---
 
-## 🧹 Data Cleaning (Python)
+##  Data Cleaning (Python)
 
 Performed data preprocessing using Pandas:
 
 ### ✔ Handling Missing Values
 
-```python
+```python id="v3l2k1"
 df['Review Rating'] = df.groupby('Category')['Review Rating']\
                        .transform(lambda x: x.fillna(x.median()))
 ```
 
 ### ✔ Column Standardization
 
-```python
+```python id="b91wqk"
 df.columns = df.columns.str.lower().str.replace(' ', '_')
 df = df.rename(columns={'purchase_amount_(usd)': 'purchase_amount'})
 ```
 
 ### ✔ Feature Engineering (Age Group)
 
-```python
+```python id="z0md9x"
 df['age_group'] = pd.qcut(df['age'], q=4, 
                          labels=['Young Adult','Adult','Middle-aged','Senior'])
 ```
 
 ---
 
-## 🛢️ SQL Analysis
+## SQL Analysis
 
 Key business questions solved using SQL:
 
@@ -88,19 +69,19 @@ Key business questions solved using SQL:
 * Repeat buyers vs subscription
 * Revenue by age group
 
-📁 Full queries available in: `sql/queries.sql`
+📁 Full queries available in repository (`queries.sql`)
 
 ---
 
-##  Power BI Dashboard
+## Power BI Dashboard
 
-![Dashboard](images/dashboard.png)
+![Dashboard](https://github.com/AabHi-4321/customer-behaviour-analysis-based-on-py-sql-powerbi/blob/main/py_sql_powerbi/dashboard_image/dashboard_image.png)
 
 ---
 
 ## Key Insights from Dashboard
 
-### 💰 Customer Spending Behavior
+### Customer Spending Behavior
 
 * Average purchase amount is **$59.76**, indicating moderate spending behavior
 * Average review rating is **3.75**, suggesting overall satisfactory customer experience
@@ -111,7 +92,8 @@ Key business questions solved using SQL:
 
 * Total customers: **~4,000**
 * Only **7.3% customers are subscribed**, while **92.7% are non-subscribers**
-  👉 Huge opportunity to improve subscription adoption
+
+👉 Indicates a **huge opportunity to improve subscription adoption**
 
 ---
 
@@ -120,10 +102,10 @@ Key business questions solved using SQL:
 * **Clothing** generates the highest revenue and sales
 * Followed by **Accessories**, while **Footwear & Outerwear** contribute less
 
-👉 Business should focus on:
+👉 Suggests:
 
-* Expanding high-performing categories
-* Improving low-performing ones
+* Focus on high-performing categories
+* Improve marketing for weaker categories
 
 ---
 
@@ -133,21 +115,23 @@ Key business questions solved using SQL:
 * Followed by **Middle-aged customers**
 * Seniors contribute comparatively less
 
-👉 Target marketing towards **Young Adults** for maximum ROI
+👉 Targeting **young adults** can maximize business growth
 
 ---
 
-### Sales Distribution
+### Sales Pattern
 
-* Sales trend across categories aligns with revenue pattern
+* Sales distribution across categories aligns with revenue trends
 * Indicates consistent pricing and purchasing behavior
 
 ---
 
 ### Subscription Insight
 
-* Very low subscription rate (7.3%)
-  👉 Indicates:
+* Very low subscription rate (**7.3%**)
+
+👉 Suggests:
+
 * Weak subscription model OR
 * Lack of awareness/benefits
 
@@ -158,12 +142,8 @@ Key business questions solved using SQL:
 This project demonstrates:
 
 * End-to-end data analysis workflow
-* Strong use of Python for preprocessing
-* SQL for business-driven analysis
-* Power BI for impactful visualization
+* Data cleaning using Python
+* Business insights using SQL
+* Interactive visualization using Power BI
 
 
-
-
-
-Abhishek Tewari
